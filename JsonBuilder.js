@@ -19,37 +19,40 @@ module.exports = class JsonBuilder {
     return {
       input() {
         return ({
-            type: 'input',
-            value: '',
-            required: false,
-            prettyType: 'Text'
+          type: 'input',
+          label: '',
+          value: '',
+          required: false,
+          prettyType: 'Text'
         })
       },
       Input() {
         return ({
-            type: 'input',
-            value: '',
-            required: true,
-            prettyType: 'Text'
+          type: 'input',
+          label: '',
+          value: '',
+          required: true,
+          prettyType: 'Text'
         })
       },
       textarea() {
         return ({
-            type: 'textarea',
-            value: '',
-            required: false,
-            prettyType: 'Long Text'
+          type: 'textarea',
+          label: '',
+          value: '',
+          required: false,
+          prettyType: 'Long Text'
         })
       },
       Textarea() {
         return ({
-            type: 'textarea',
-            value: '',
-            required: true,
-            prettyType: 'Long Text'
+          type: 'textarea',
+          label: '',
+          value: '',
+          required: true,
+          prettyType: 'Long Text'
         })
       }
     }
-    
   }
 }
