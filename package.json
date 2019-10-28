@@ -1,0 +1,24 @@
+{
+  "name": "json-form-builder",
+  "version": "0.0.1",
+  "description": "A tool to create json type objects for quick and standardised input forms",
+  "main": "JsonFormBuilder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanwarman/json-builder.git"
+  },
+  "keywords": [
+    "json",
+    "javascript",
+    "forms"
+  ],
+  "author": "Sean Warman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanwarman/json-builder/issues"
+  },
+  "homepage": "https://github.com/seanwarman/json-builder#readme"
+}

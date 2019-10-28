@@ -1,9 +1,9 @@
-const JsonBuilder = require('./JsonBuilder');
-const {sanitiseValues} = require('./JsonSanitiser');
+const JsonFormBuilder = require('JsonFormBuilder');
 
-const jsonFormBuilder = new JsonBuilder('jsonForm');
+const jsonFormBuilder = JsonFormBuilder('jsonForm');
+const jsonFormSanitiser = JsonFormBuilder('jsonFormSanitiser');
 
-let jsonForm = jsonFormBuilder(['multi', 'Input', 'Textarea']);
+let jsonForm = jsonFormBuilder(['input', 'Input', 'textarea']);
 
-// console.log(jsonForm);
-console.log(sanitiseValues(jsonForm));
+console.log(jsonFormSanitiser(jsonForm))
+
