@@ -1,5 +1,5 @@
 {
-  "name": "json-form-builder",
+  "name": "@seanwarman/json-form-builder",
   "version": "0.0.1",
   "description": "A tool to create json type objects for quick and standardised input forms",
   "main": "JsonFormBuilder.js",
