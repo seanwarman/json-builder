@@ -64,6 +64,28 @@ module.exports = JsonFormBuilder = function(type) {
     return this.sanitiseJson(this.sanitiseMultiChildren(jsonForm))
   }
 
+  this.jsonFormValidator = (form, saved) => {
+    if(saved) return false;
+    let valid = true;
+    let formCopy = form.filter( item => (
+      item.required === true && item.type !== 'multi'
+    ));
+    let multis = form.filter( item => (
+      item.required === true && item.type === 'multi'
+    ));
+    formCopy = multis.reduce( (arr, input) => {
+      return this.flattenArr(arr).concat(this.flattenArr(input.children));
+    }, formCopy);
+    if(formCopy.find( item => (
+      (typeof item.value === 'string' && item.value.length < 1)
+      ||
+      (typeof item.value === 'object' && item.value === null)
+    ))) {
+      valid = false;
+    }
+    return valid;
+  }
+
   this.jsonForm = (array) => {
     return array.reduce((arr, type) => {
       if(!this._jsonFormTypes()[type]) {
