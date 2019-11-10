@@ -42,7 +42,7 @@ This will sanitise all values of the jsonForm then convert the whole object to a
 
 ```js
 const data {
-    jsonForm: jsonFormSanitiser(jsonForm)
+    jsonForm: jsonFormSanitiser(jsonForm);
 }
 ```
 

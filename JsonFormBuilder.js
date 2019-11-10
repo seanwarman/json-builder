@@ -64,6 +64,12 @@ module.exports = JsonFormBuilder = function(type) {
     return this.sanitiseJson(this.sanitiseMultiChildren(jsonForm))
   }
 
+  this.flattenArr = (arr) => {
+    return arr.reduce((flat, toFlatten) => {
+      return this.flattenArr(flat).concat(toFlatten instanceof Array ? this.flattenArr(toFlatten) : toFlatten);
+    }, []);
+  }
+
   this.jsonFormValidator = (form, saved) => {
     if(saved) return false;
     let valid = true;
@@ -175,31 +181,35 @@ module.exports = JsonFormBuilder = function(type) {
         })
       },
       multi() {
-        const template = [
-          { label: '', type: 'input', prettyType: 'Text', value: '' },
-          { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
-        ];
         return ({
           type: 'multi',
           label: '',
           value: '',
-          template: template,
-          children: [template],
+          template: [
+            { label: '', type: 'input', prettyType: 'Text', value: '' },
+            { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
+          ],
+          children: [[
+            { label: '', type: 'input', prettyType: 'Text', value: '' },
+            { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
+          ]],
           required: false,
           prettyType: 'Multi'
         })
       },
       Multi() {
-        const template = [
-          { label: '', type: 'input', prettyType: 'Text', value: '' },
-          { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
-        ];
         return ({
           type: 'multi',
           label: '',
           value: '',
-          template: template,
-          children: [template],
+          template: [
+            { label: '', type: 'input', prettyType: 'Text', value: '' },
+            { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
+          ],
+          children: [[
+            { label: '', type: 'input', prettyType: 'Text', value: '' },
+            { label: '', type: 'textarea', prettyType: 'Text Area', value: '' }
+          ]],
           required: true,
           prettyType: 'Multi'
         })
